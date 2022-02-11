@@ -3,23 +3,25 @@ import { Topic, TopicType } from "shared/topic";
 import { Context, NarrowedContext } from "telegraf";
 import { MountMap } from "telegraf/typings/telegram-types";
 
+moment.tz.setDefault("Asia/Jakarta");
+
 export const wakeUpTopicListener = async (
   ctx: NarrowedContext<Context, MountMap["text"]>
 ) => {
   let dateContext: "nantii" | "besokk" = "nantii";
   const userReply = ctx.update.message.text;
-  const userReplyDate = moment.tz(userReply, "HH:mm", true, "Asia/Jakarta");
+  const userReplyDate = moment(userReply, "HH:mm", true);
 
-  console.log(userReplyDate, userReplyDate.isBefore(moment.tz("Asia/Jakarta")));
+  console.log(userReplyDate, userReplyDate.isBefore(moment()));
 
   if (userReplyDate.isValid()) {
-    if (userReplyDate.isBefore(moment.tz("Asia/Jakarta"))) {
+    if (userReplyDate.isBefore(moment())) {
       userReplyDate.add(1, "day");
       dateContext = "besokk";
     }
 
     console.log(
-      moment.tz("Asia/Jakarta").format("YYYY-MM-DD HH:mm:ss"),
+      moment().format("YYYY-MM-DD HH:mm:ss"),
       "wakeUpTopicListener",
       userReply,
       userReplyDate.format("YYYY-MM-DD HH:mm:ss")
@@ -33,7 +35,7 @@ export const wakeUpTopicListener = async (
 
     setTimeout(async () => {
       await ctx.reply("banguuunnnnnn");
-    }, userReplyDate.diff(moment.tz("Asia/Jakarta"), "ms"));
+    }, userReplyDate.diff(moment(), "ms"));
   } else {
     await ctx.reply("aku ngga ngertii yang kmu maksud");
     await ctx.reply("coba balesnya kaya gini: 08:00");
