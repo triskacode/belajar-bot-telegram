@@ -10,7 +10,11 @@ export const wakeUpTopicListener = async (
 ) => {
   let dateContext: "nantii" | "besokk" = "nantii";
   const userReply = ctx.update.message.text;
-  const userReplyDate = moment(userReply, "HH:mm", true);
+  const userReplyDate = moment(
+    `${moment().format("YYYY-MM-DD")} ${userReply}`,
+    "HH:mm",
+    true
+  );
 
   console.log(userReplyDate, userReplyDate.isBefore(moment()));
 
