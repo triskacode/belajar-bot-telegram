@@ -8,7 +8,7 @@ export const wakeUpTopicListener = async (
 ) => {
   let dateContext: "nantii" | "besokk" = "nantii";
   const userReply = ctx.update.message.text;
-  const userReplyDate = moment(userReply, "HH:mm", true).tz("Asia/Jakarta");
+  const userReplyDate = moment(userReply, "HH:mm", true);
 
   if (userReplyDate.isValid()) {
     if (userReplyDate.isBefore(moment().tz("Asia/Jakarta"))) {
