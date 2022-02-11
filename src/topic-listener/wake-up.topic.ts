@@ -12,12 +12,15 @@ export const wakeUpTopicListener = async (
   const userReply = ctx.update.message.text;
   const userReplyDate = moment(
     `${moment().format("YYYY-MM-DD")} ${userReply}`,
-    "HH:mm",
+    "YYYY-MM-DD HH:mm",
     true
   );
 
-  console.log(userReplyDate, userReplyDate.isBefore(moment()));
+  console.log(`${moment().format("YYYY-MM-DD")} ${userReply}`, userReplyDate, userReplyDate.isBefore(moment()));
 
+  console.log(userReplyDate.invalidAt());
+  
+  
   if (userReplyDate.isValid()) {
     if (userReplyDate.isBefore(moment())) {
       userReplyDate.add(1, "day");
