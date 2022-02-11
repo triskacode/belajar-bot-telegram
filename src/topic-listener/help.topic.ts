@@ -1,4 +1,3 @@
-import { helpHandler } from "handler/help.handler";
 import { wakeUpHandler } from "handler/wake-up.handler";
 import { getRejectionAnswer } from "helper/get-rejection-answer";
 import { Context, NarrowedContext } from "telegraf";

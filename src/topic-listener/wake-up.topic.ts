@@ -1,4 +1,4 @@
-import moment from "moment";
+import moment from "config/moment";
 import { Topic, TopicType } from "shared/topic";
 import { Context, NarrowedContext } from "telegraf";
 import { MountMap } from "telegraf/typings/telegram-types";
@@ -16,8 +16,12 @@ export const wakeUpTopicListener = async (
       dateContext = "besokk";
     }
 
-    console.log(moment().format("YYYY-MM-DD HH:mm:ss"), "wakeUpTopicListener", userReply, userReplyDate.format("YYYY-MM-DD HH:mm:ss"));
-    
+    console.log(
+      moment().format("YYYY-MM-DD HH:mm:ss"),
+      "wakeUpTopicListener",
+      userReply,
+      userReplyDate.format("YYYY-MM-DD HH:mm:ss")
+    );
 
     await ctx.reply(
       `oke, akuu ${dateContext} akan bangunin kamu jam ${userReplyDate.format(
