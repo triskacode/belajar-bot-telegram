@@ -1,0 +1,1 @@
+worker: NODE_PATH=./src ts-node src/index.ts

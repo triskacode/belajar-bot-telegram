@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Belajar membuat bot di telegram",
   "main": "src/index.ts",
+  "engines": {
+    "node": "16.13.2",
+    "npm": "8.1.2"
+  },
   "scripts": {
     "start": "NODE_PATH=./src ts-node src/index.ts",
     "dev": "NODE_PATH=./src nodemon src/index.ts"
