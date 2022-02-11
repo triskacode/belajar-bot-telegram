@@ -9,8 +9,8 @@ export const startTopicListener = async (
   const userReply = ctx.update.message.text;
 
   if (userReply === "iyaaa") {
-    await helpHandler(ctx);
+    helpHandler(ctx);
   } else if (userReply === "hehe, ngga jadii") {
-    await getRejectionAnswer(ctx);
+    getRejectionAnswer(ctx);
   }
 };

@@ -1,6 +1,8 @@
+import { Topic, TopicType } from "shared/topic";
 import { Context } from "telegraf";
 
 export const wakeUpHandler = async (ctx: Context) => {
-  console.log("wake up");
-  ctx.reply("mao dibangunin jam berapaa?");
+  await ctx.reply("mao dibangunin jam berapaa?");
+
+  Topic.type = TopicType.WakeUp;
 };

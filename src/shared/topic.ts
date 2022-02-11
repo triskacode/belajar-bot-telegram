@@ -1,6 +1,7 @@
 export enum TopicType {
   Start,
   Help,
+  WakeUp,
 }
 
 interface TopicInterface {

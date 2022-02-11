@@ -28,9 +28,6 @@ bot.help(helpHandler);
 bot.command("bagunin_tidur", wakeUpHandler);
 bot.on("text", textHandler);
 
-console.log(moment().format("HH:mm"));
-
-
 bot.launch();
 
 process.once("SIGINT", () => bot.stop("SIGINT"));
