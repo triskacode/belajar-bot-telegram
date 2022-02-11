@@ -8,10 +8,10 @@ export const wakeUpTopicListener = async (
 ) => {
   let dateContext: "nantii" | "besokk" = "nantii";
   const userReply = ctx.update.message.text;
-  const userReplyDate = moment(userReply, "HH:mm", true);
+  const userReplyDate = moment.tz(userReply, "HH:mm", true, "Asia/Jakarta");
 
   if (userReplyDate.isValid()) {
-    if (userReplyDate.isBefore(moment().tz("Asia/Jakarta"))) {
+    if (userReplyDate.isBefore(moment.tz("Asia/Jakarta"))) {
       userReplyDate.add(1, "day");
       dateContext = "besokk";
     }
@@ -31,7 +31,7 @@ export const wakeUpTopicListener = async (
 
     setTimeout(async () => {
       await ctx.reply("banguuunnnnnn");
-    }, userReplyDate.diff(moment().tz("Asia/Jakarta"), "ms"));
+    }, userReplyDate.diff(moment.tz("Asia/Jakarta"), "ms"));
   } else {
     await ctx.reply("aku ngga ngertii yang kmu maksud");
     await ctx.reply("coba balesnya kaya gini: 08:00");
