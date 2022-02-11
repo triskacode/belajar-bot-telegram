@@ -16,6 +16,9 @@ export const wakeUpTopicListener = async (
       dateContext = "besokk";
     }
 
+    console.log(moment().format("YYYY-MM-DD HH:mm:ss"), "wakeUpTopicListener", userReply, userReplyDate.format("YYYY-MM-DD HH:mm:ss"));
+    
+
     await ctx.reply(
       `oke, akuu ${dateContext} akan bangunin kamu jam ${userReplyDate.format(
         "HH:mm"

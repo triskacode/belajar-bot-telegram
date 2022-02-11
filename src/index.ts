@@ -3,9 +3,11 @@ import { helpHandler } from "handler/help.handler";
 import { startHandler } from "handler/start.handler";
 import { textHandler } from "handler/text.handler";
 import { wakeUpHandler } from "handler/wake-up.handler";
+import moment from "moment";
 import { Telegraf } from "telegraf";
 
 const bot = new Telegraf(config.app.BOT_TOKEN);
+moment.locale("id");
 
 bot.telegram.setMyCommands([
   {
