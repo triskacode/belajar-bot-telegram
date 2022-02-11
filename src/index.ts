@@ -4,7 +4,6 @@ import { startHandler } from "handler/start.handler";
 import { textHandler } from "handler/text.handler";
 import { wakeUpHandler } from "handler/wake-up.handler";
 import { Telegraf } from "telegraf";
-import moment from "moment";
 
 const bot = new Telegraf(config.app.BOT_TOKEN);
 
