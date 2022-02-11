@@ -10,6 +10,8 @@ export const wakeUpTopicListener = async (
   const userReply = ctx.update.message.text;
   const userReplyDate = moment.tz(userReply, "HH:mm", true, "Asia/Jakarta");
 
+  console.log(userReplyDate, userReplyDate.isBefore(moment.tz("Asia/Jakarta")));
+
   if (userReplyDate.isValid()) {
     if (userReplyDate.isBefore(moment.tz("Asia/Jakarta"))) {
       userReplyDate.add(1, "day");
@@ -17,7 +19,7 @@ export const wakeUpTopicListener = async (
     }
 
     console.log(
-      moment().tz("Asia/Jakarta").format("YYYY-MM-DD HH:mm:ss"),
+      moment.tz("Asia/Jakarta").format("YYYY-MM-DD HH:mm:ss"),
       "wakeUpTopicListener",
       userReply,
       userReplyDate.format("YYYY-MM-DD HH:mm:ss")
